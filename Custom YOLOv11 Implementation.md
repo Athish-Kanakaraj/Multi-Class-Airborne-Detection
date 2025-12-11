@@ -9,7 +9,7 @@ To use the model:
 
 \ultralytics\ultralytics\nn\modules\block.py
 
-
+Paste this
 
 __all__ = (
     "QuantumConv", 
@@ -61,6 +61,8 @@ __all__ = (
     "SCDown",
     "TorchVision",
 )
+
+Add these classes
 
 class QuantumConv(nn.Module):
     """Quantum-inspired Convolutional Block"""
@@ -168,7 +170,7 @@ class QuantumDetect(nn.Module):
 
 \ultralytics\ultralytics\nn\modules\__init__.py
 
-
+Paste this
 
 from .block import (
     QuantumConv,
@@ -226,15 +228,13 @@ from .block import (
 
 ultralytics\ultralytics\cfg\models\11\yolo11.yaml
 
+Paste this
 
-
-# yolo11_quantum_working.yaml
 nc: 4
 scales:
   n: [0.33, 0.25, 1024]
 
 backbone:
-  # [from, repeats, module, args]
   - [-1, 1, QuantumConv, [64, 3, 2]]    # 0-P1/2
   - [-1, 1, Conv, [128, 3, 2]]          # 1-P2/4
   - [-1, 2, C2f, [128]]                 # 2
