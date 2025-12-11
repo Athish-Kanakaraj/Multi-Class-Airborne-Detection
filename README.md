@@ -1,4 +1,4 @@
-<h1 align="center">📡 Multi-Class Detection of Airborne Entities Using YOLOv11</h1>
+<h1>📡 Multi-Class Detection of Airborne Entities Using YOLOv11</h1>
 
 Real-time airborne object detection using YOLOv11, optimized for NVIDIA Jetson edge devices.  
 Detects **drones, birds, airplanes, and helicopters** from live video streams.
