@@ -1,68 +1,60 @@
-🛩️ Multi-Class Airborne Entity Detection using YOLOv11
+📡 Multi-Class Detection of Airborne Entities Using YOLOv11
 
-This project presents a real-time airborne object detection system capable of identifying drones, birds, airplanes, and helicopters using the YOLOv11 deep-learning framework. The model is optimized for NVIDIA Jetson edge devices, enabling fast, low-latency inference on live video streams captured using a standard webcam. The system is designed for applications in airspace monitoring, aerial surveillance, UAV awareness, and safety analysis.
+Real-time airborne object detection using YOLOv11, optimized for NVIDIA Jetson edge devices.
+The system detects drones, birds, airplanes, and helicopters from live video streams with high accuracy.
 
-🌟 Key Features
+✨ Key Features
 
-Multi-class airborne detection (Drone, Bird, Airplane, Helicopter)
+🚁 Multi-Class Detection: Drone, Bird, Airplane, Helicopter
 
-YOLOv11 anchor-free architecture for improved accuracy
+⚡ Real-Time Inference: Using YOLOv11’s anchor-free architecture
 
-Hybrid feature enhancement (quantum-inspired, neuromorphic, wavelet-based methods)
-
-Edge deployment on NVIDIA Jetson for offline, real-time performance
-
-Evaluation metrics: Precision, Recall, F1-score, mAP, Confusion Matrix
-
-Robust performance in diverse environmental conditions
-
-🧠 Why This System Matters
-
-Traditional radar and RF-based surveillance systems struggle with:
-
-Small or low-flying objects
-
-High infrastructure cost
-
-Inefficiency in complex environments
-
-This work provides a low-cost, scalable, AI-driven alternative using camera-based detection.
-YOLOv11 delivers high performance with minimal computational overhead, making it ideal for embedded platforms and real-time surveillance.
-
-🛠️ Methodology Overview
-
-Dataset Creation
-Combined aerial datasets covering drones, birds, airplanes, and helicopters, along with webcam-captured samples.
-
-Preprocessing & Augmentation
-Resizing, normalization, noise reduction, rotation, flipping, scaling, and brightness adjustments.
-
-YOLOv11 Detection Framework
-Anchor-free detection improves performance on small, fast-moving airborne objects.
-
-Hybrid Feature Enhancement
+🧠 Hybrid Feature Enhancements:
 
 Quantum-inspired convolution
 
-Neuromorphic-inspired event modeling
+Neuromorphic/event-aware processing
 
-Wavelet-based multi-resolution feature extraction
+Wavelet-based multi-resolution features
 
-Edge Deployment
-Optimized and deployed on NVIDIA Jetson with GPU acceleration for real-time inference.
+🖥️ Edge Optimized: Fully runnable on NVIDIA Jetson devices
 
-🧩 System Architecture
+📊 Strong Metrics: High precision, recall, F1-score, and mAP
 
-The architecture extends YOLOv11 using:
+📁 System Architecture
 
-Multi-stream feature extraction
+A lightweight hybrid architecture is built on YOLOv11 for improved detection of small, fast-moving airborne targets.
 
-Wavelet downsampling (HWD)
+Backbone Enhancements
 
-Spatial pyramid pooling (SPPF)
+Quantum-inspired convolution blocks
 
-Attention-based feature selection
+Neuromorphic-sensitive feature modeling
 
-Multi-scale detection heads
+Wavelet-based multi-resolution extraction
 
-This improves robustness in cluttered backgrounds and supports variable object sizes.
+C3K2 blocks, Upsampling, SPPF modules
+
+Detection Heads
+
+Multi-resolution heads ensure accurate detection at varying scales.
+
+🗂️ Dataset Overview
+
+This project uses a combined aerial dataset including:
+
+Drone detection images
+
+Bird flight datasets
+
+Airplane & helicopter datasets
+
+Preprocessing
+
+Resizing & normalization
+
+Noise reduction
+
+Rotation, flip, scale augmentation
+
+Brightness variations
