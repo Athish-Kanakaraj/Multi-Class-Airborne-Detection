@@ -3,7 +3,7 @@
 This model (`weights/best.pt`) requires a few custom modules (QuantumConv, NeuroMorph, WaveletProc, MultiModalFusion).
 To use the model:
 
-1. Install Ultralytics:
+1. Install Ultralytics in your desired location(clone the ultralytics):
 
 2. Add Custom Modules To The Existing Blocks:
 
@@ -265,3 +265,8 @@ head:
 
   - [[15, 18, 21], 1, Detect, [nc]]             # 22 Detect(P3, P4, P5)
 
+5. After this, train the model with the required epoches (recommeneded 25 - 50 epoches):
+
+6. Once training is over, best.pt is generated inside weights file. Feed the best.pt file location to the detect.py file and run it:
+
+NOTE : I already pre-trained best.pt file and uploaded it. So, jsut install ultralytics(no need of cloning) in your desired location and paste the detect.py and best.pt file to the location and run it. The result will be shown instantly.
