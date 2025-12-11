@@ -9,9 +9,8 @@ To use the model:
 
 \ultralytics\ultralytics\nn\modules\block.py
 
-Add these
 
-'''
+
 __all__ = (
     "QuantumConv", 
     "NeuroMorph", 
@@ -69,8 +68,7 @@ class QuantumConv(nn.Module):
         super().__init__()
         self.conv = nn.Conv2d(c1, c2, k, s, autopad(k, p), groups=g, dilation=d, bias=False)
         self.bn = nn.BatchNorm2d(c2)
-        self.act = nn.SiLU()
-        
+        self.act = nn.SiLU()        
     def forward(self, x):
         return self.act(self.bn(self.conv(x)))
 
@@ -80,8 +78,7 @@ class NeuroMorph(nn.Module):
         super().__init__()
         self.conv = nn.Conv2d(c1, c2, k, s, autopad(k, p), groups=g, bias=False)
         self.bn = nn.BatchNorm2d(c2)
-        self.act = nn.SiLU()
-        
+        self.act = nn.SiLU()        
     def forward(self, x):
         return self.act(self.bn(self.conv(x)))
 
@@ -91,8 +88,7 @@ class WaveletProc(nn.Module):
         super().__init__()
         self.conv = nn.Conv2d(c1, c2, k, s, autopad(k, p), groups=g, bias=False)
         self.bn = nn.BatchNorm2d(c2)
-        self.act = nn.SiLU()
-        
+        self.act = nn.SiLU()        
     def forward(self, x):
         return self.act(self.bn(self.conv(x)))
 
@@ -103,8 +99,7 @@ class MultiModalFusion(nn.Module):
         # c1 should be sum of input channels when concatenating
         self.conv = nn.Conv2d(c1, c2, k, s, autopad(k, p), groups=g, bias=False)
         self.bn = nn.BatchNorm2d(c2)
-        self.act = nn.SiLU()
-        
+        self.act = nn.SiLU()     
     def forward(self, *inputs):
         x = torch.cat(inputs, dim=1)
         return self.act(self.bn(self.conv(x)))
@@ -114,8 +109,7 @@ class Upsample(nn.Module):
     def __init__(self, scale_factor=2, mode='nearest'):
         super().__init__()
         self.scale_factor = scale_factor
-        self.mode = mode
-        
+        self.mode = mode    
     def forward(self, x):
         return F.interpolate(x, scale_factor=self.scale_factor, mode=self.mode)
 
@@ -127,8 +121,7 @@ class C3k2(nn.Module):
         self.cv1 = Conv(c1, c_, 1, 1)
         self.cv2 = Conv(c1, c_, 1, 1)
         self.cv3 = Conv(2 * c_, c2, 1)
-        self.m = nn.Sequential(*(Bottleneck(c_, c_, shortcut) for _ in range(n)))
-        
+        self.m = nn.Sequential(*(Bottleneck(c_, c_, shortcut) for _ in range(n))) 
     def forward(self, x):
         return self.cv3(torch.cat((self.m(self.cv1(x)), self.cv2(x)), 1))
 
@@ -140,7 +133,6 @@ class SPPF(nn.Module):
         self.cv1 = Conv(c1, c_, 1, 1)
         self.cv2 = Conv(c_ * 4, c2, 1, 1)
         self.m = nn.MaxPool2d(kernel_size=k, stride=1, padding=k // 2)
-        
     def forward(self, x):
         x = self.cv1(x)
         y1 = self.m(x)
@@ -155,7 +147,6 @@ class C2PSA(nn.Module):
         self.cv1 = Conv(c1, 2 * self.c, 1, 1)
         self.cv2 = Conv(2 * self.c, c2, 1)
         self.m = nn.Sequential(*(Bottleneck(self.c, self.c, shortcut, g, k=((3, 3), (3, 3)), e=1.0) for _ in range(n)))
-        
     def forward(self, x):
         a, b = self.cv1(x).chunk(2, 1)
         return self.cv2(torch.cat((self.m(a), b), 1))
@@ -166,20 +157,18 @@ class QuantumDetect(nn.Module):
         super().__init__()
         self.num_classes = num_classes
         self.anchors = anchors
-        
         # Detection convolution
         self.conv = nn.Conv2d(c1, anchors * (5 + num_classes), 1)
-        
     def forward(self, x):
         return self.conv(x)
         
-'''
+
 
 3. Initialize The Custom Blocks:
 
 \ultralytics\ultralytics\nn\modules\__init__.py
 
-'''
+
 
 from .block import (
     QuantumConv,
@@ -231,13 +220,13 @@ from .block import (
     TorchVision,
 )
 
-'''
+
 
 4. Update The Architecture Head: 
 
 ultralytics\ultralytics\cfg\models\11\yolo11.yaml
 
-'''
+
 
 # yolo11_quantum_working.yaml
 nc: 4
@@ -276,4 +265,3 @@ head:
 
   - [[15, 18, 21], 1, Detect, [nc]]             # 22 Detect(P3, P4, P5)
 
-  '''
