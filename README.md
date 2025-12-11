@@ -1,60 +1,47 @@
-📡 Multi-Class Detection of Airborne Entities Using YOLOv11
+<h1 align="center">📡 Multi-Class Detection of Airborne Entities Using YOLOv11</h1>
 
-Real-time airborne object detection using YOLOv11, optimized for NVIDIA Jetson edge devices.
-The system detects drones, birds, airplanes, and helicopters from live video streams with high accuracy.
+Real-time airborne object detection using YOLOv11, optimized for NVIDIA Jetson edge devices.  
+Detects **drones, birds, airplanes, and helicopters** from live video streams.
 
-✨ Key Features
+---
 
-🚁 Multi-Class Detection: Drone, Bird, Airplane, Helicopter
+<h2>✨ Key Features</h2>
 
-⚡ Real-Time Inference: Using YOLOv11’s anchor-free architecture
+- 🚁 **Multi-Class Detection:** Drone, Bird, Airplane, Helicopter  
+- ⚡ **Real-Time YOLOv11 inference**  
+- 🧠 **Hybrid Feature Enhancements:** quantum, neuromorphic, wavelet  
+- 🖥️ **Jetson-optimized deployment**  
+- 📊 High Precision, Recall, F1-score, and mAP  
 
-🧠 Hybrid Feature Enhancements:
+---
 
-Quantum-inspired convolution
+<h2>📁 System Architecture</h2>
 
-Neuromorphic/event-aware processing
+A lightweight hybrid YOLOv11 architecture with:
 
-Wavelet-based multi-resolution features
+### **Hybrid Enhancements**
+- Quantum-inspired convolution  
+- Neuromorphic event-aware processing  
+- Wavelet-based multi-resolution extraction  
 
-🖥️ Edge Optimized: Fully runnable on NVIDIA Jetson devices
+### **Detection Heads**
+- Multi-scale detection  
+- High accuracy for small airborne objects  
 
-📊 Strong Metrics: High precision, recall, F1-score, and mAP
+---
 
-📁 System Architecture
+<h2>🗂️ Dataset Overview</h2>
 
-A lightweight hybrid architecture is built on YOLOv11 for improved detection of small, fast-moving airborne targets.
+Includes images of:
 
-Backbone Enhancements
+- 🛸 Drones  
+- 🐦 Birds  
+- ✈️ Airplanes  
+- 🚁 Helicopters  
 
-Quantum-inspired convolution blocks
-
-Neuromorphic-sensitive feature modeling
-
-Wavelet-based multi-resolution extraction
-
-C3K2 blocks, Upsampling, SPPF modules
-
-Detection Heads
-
-Multi-resolution heads ensure accurate detection at varying scales.
-
-🗂️ Dataset Overview
-
-This project uses a combined aerial dataset including:
-
-Drone detection images
-
-Bird flight datasets
-
-Airplane & helicopter datasets
-
-Preprocessing
-
-Resizing & normalization
-
-Noise reduction
-
-Rotation, flip, scale augmentation
-
-Brightness variations
+### **Preprocessing**
+- Resizing & normalization  
+- Rotation, flip, scale  
+- Brightness variation  
+cd yourrepo
+pip install -r requirements.txt
